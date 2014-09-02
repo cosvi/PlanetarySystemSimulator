@@ -1,4 +1,4 @@
-Aihe: Planeetakuntasimulaattori, jolla käyttäjä voi tarkastella mitä tapahtuu, jos planeettakunnalle antaa erilaisia alkuehtoja.
+Aihe: Planeetakuntasimulaattori, jolla käyttäjä voi tarkastella mitä tapahtuu, jos planeettakunnalle antaa erilaisia alkuehtoja. Käyttäjä voi muokata olemassaolevien planeettakuntien alkuehtoja, tai luoda alusta alkaen oman systeemin.
 
 Käyttäjät: Kuka tahansa
 
