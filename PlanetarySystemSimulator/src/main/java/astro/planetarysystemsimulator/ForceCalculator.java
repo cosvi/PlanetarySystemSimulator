@@ -28,11 +28,11 @@ public class ForceCalculator {
     
     public double[] Force(Body body1, Body body2) {
         double[] distances = this.Distances(body1.getPosition(), body2.getPosition());
-        double force = G * body1.getMass() * body2.getMass() / distances[3];
+        double force = G * body1.getMass() * body2.getMass() / Math.pow(distances[3],2);
         double[] forces = {0,0,0};
-        forces[0] = Math.signum(distances[0]) * force * distances[0] / distances[3];
-        forces[1] = Math.signum(distances[1]) * force * distances[0] / distances[3];
-        forces[2] = Math.signum(distances[2]) * force * distances[0] / distances[3];
+        forces[0] = force * distances[0] / distances[3];
+        forces[1] = force * distances[1] / distances[3];
+        forces[2] = force * distances[2] / distances[3];
         return forces;      
     }
     

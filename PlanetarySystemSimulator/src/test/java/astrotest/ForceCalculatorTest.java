@@ -28,14 +28,6 @@ public class ForceCalculatorTest {
     public ForceCalculatorTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
     @Before
     public void setUp() {
         this.calc =  new ForceCalculator();
@@ -64,5 +56,20 @@ public class ForceCalculatorTest {
     @Test
     public void testDistanceTotal() {
         assertEquals(7.0, calc.Distances(this.body1.getPosition(), this.body2.getPosition())[3], 0.001);
+    }
+    
+    @Test
+    public void testForceX() {
+        assertEquals(35.0 , calc.Force(this.body1, this.body2)[0], 0.1);
+    }
+    
+    @Test
+    public void testForceY() {
+        assertEquals(-17.5 , calc.Force(this.body1, this.body2)[1], 0.1);        
+    }
+    
+    @Test
+    public void testForceZ() {
+        assertEquals(-11.7 , calc.Force(this.body1, this.body2)[2], 0.1);        
     }
 }

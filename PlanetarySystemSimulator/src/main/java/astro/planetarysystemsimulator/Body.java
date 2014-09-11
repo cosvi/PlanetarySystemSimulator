@@ -19,7 +19,12 @@ public class Body {
     
     public Body(String name, double mass) {
         this.name = name;
-        this.mass = mass;
+        if (mass > 0.0) {
+            this.mass = mass;
+        } else {
+            this.mass = 1.0;
+            System.out.println("Mass has to be positive. It has been set to 1.0");
+        }
         this.acceleration = new double[]{0, 0, 0};
     }
     
