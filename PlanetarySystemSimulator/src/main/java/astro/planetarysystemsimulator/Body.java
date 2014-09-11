@@ -12,38 +12,38 @@ package astro.planetarysystemsimulator;
  */
 public class Body {
     private String name;
-    private float mass;             //in units of ???
-    private float[] position;       //in units of ???
-    private float[] velocity;       //in units of ???
-    private float[] acceleration;   //in units of ???
+    private double mass;             //in units of ???
+    private double[] position;       //in units of ???
+    private double[] velocity;       //in units of ???
+    private double[] acceleration;   //in units of ???
     
-    public Body(String name, float mass) {
+    public Body(String name, double mass) {
         this.name = name;
         this.mass = mass;
-        this.acceleration = new float[]{0, 0, 0};
+        this.acceleration = new double[]{0, 0, 0};
     }
     
-    public void setPosition(float[] position) {
+    public void setPosition(double[] position) {
         this.position = position;
     }
     
-    public float[] getPosition() {
+    public double[] getPosition() {
         return this.position;
     }
     
-    public void setVelocity(float[] velocity) {
+    public void setVelocity(double[] velocity) {
         this.velocity = velocity;
     }
     
-    public float[] getVelocity() {
+    public double[] getVelocity() {
         return this.velocity;
     }
     
-    public void setMass(float mass) {
+    public void setMass(double mass) {
         this.mass = mass;
     }
     
-    public float getMass() {
+    public double getMass() {
         return this.mass;
     }
     

@@ -5,7 +5,7 @@
  */
 
 package astro.planetarysystemsimulator;
-import java.lang.Math;
+//import java.lang.Math;
 
 /**
  *
@@ -15,7 +15,7 @@ public class ForceCalculator {
     private double G;       //gravitational constant
 
     public ForceCalculator() {
-        this.G = 9.81;       //in m/s
+        this.G = 10.0;       //in m/s
     }
     
     public double getG() {
@@ -36,7 +36,7 @@ public class ForceCalculator {
         return forces;      
     }
     
-    private double[] Distances(double[] pos1, double[] pos2) {
+    public double[] Distances(double[] pos1, double[] pos2) {
         double distances[] = {0,0,0,0};
         distances[0] = pos1[0]-pos2[0];
         distances[1] = pos1[1]-pos2[1];
