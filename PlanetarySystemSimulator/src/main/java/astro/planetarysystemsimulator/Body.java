@@ -10,13 +10,18 @@ package astro.planetarysystemsimulator;
  *
  * @author jussi
  */
+
+//This class depicts all the planetary system objects.
+//If necessary subclasses can be added to handle different
+//objects, such as stars, planets, asteroids, etc.
 public class Body {
     private String name;
     private double mass;             //in units of ???
-    private double[] position;       //in units of ???
-    private double[] velocity;       //in units of ???
-    private double[] acceleration;   //in units of ???
-    
+    private double[] position;       //in units of ???      x(t)
+    private double[] velocity;       //in units of ???      v(t)
+    private double[] acceleration;   //in units of ???,     a(t)
+    private double[] accelerationOld;   //in units of ???,    a(t-1)
+
     public Body(String name, double mass) {
         this.name = name;
         if (mass > 0.0) {
@@ -26,6 +31,7 @@ public class Body {
             System.out.println("Mass has to be positive. It has been set to 1.0");
         }
         this.acceleration = new double[]{0, 0, 0};
+        this.accelerationOld = new double[]{0, 0, 0};
     }
     
     public void setPosition(double[] position) {
@@ -58,5 +64,18 @@ public class Body {
     
     public String getName() {
         return this.name;
+    }
+    
+    public void accelerate(double[] acceleration) {
+        for (int i = 0; i < 3; i++) {
+            this.acceleration[i] += acceleration[i];
+        }
+    }
+    
+    public void saveAcceleration() {
+        this.accelerationOld = this.acceleration;
+        for (double x : this.acceleration) {
+            x = 0.0;
+        }
     }
 }

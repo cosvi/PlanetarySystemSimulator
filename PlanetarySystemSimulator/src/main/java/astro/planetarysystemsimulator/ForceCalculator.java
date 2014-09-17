@@ -11,6 +11,8 @@ package astro.planetarysystemsimulator;
  *
  * @author jussi
  */
+
+//This class handles the calculation of forces between objects
 public class ForceCalculator {
     private double G;       //gravitational constant
 
@@ -26,8 +28,8 @@ public class ForceCalculator {
         this.G = newG;
     }
     
-    public double[] Force(Body body1, Body body2) {
-        double[] distances = this.Distances(body1.getPosition(), body2.getPosition());
+    public double[] force(Body body1, Body body2) {
+        double[] distances = this.distances(body1.getPosition(), body2.getPosition());
         double force = G * body1.getMass() * body2.getMass() / Math.pow(distances[3],2);
         double[] forces = {0,0,0};
         forces[0] = force * distances[0] / distances[3];
@@ -36,7 +38,7 @@ public class ForceCalculator {
         return forces;      
     }
     
-    public double[] Distances(double[] pos1, double[] pos2) {
+    public double[] distances(double[] pos1, double[] pos2) {
         double distances[] = {0,0,0,0};
         distances[0] = pos1[0]-pos2[0];
         distances[1] = pos1[1]-pos2[1];

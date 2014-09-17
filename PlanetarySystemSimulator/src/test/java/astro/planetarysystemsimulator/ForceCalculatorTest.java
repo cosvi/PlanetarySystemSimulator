@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package astrotest;
+package astro.planetarysystemsimulator;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -40,36 +40,36 @@ public class ForceCalculatorTest {
     
     @Test
     public void testDistanceX() {
-        assertEquals(6.0, calc.Distances(this.body1.getPosition(), this.body2.getPosition())[0], 0.001);
+        assertEquals(6.0, calc.distances(this.body1.getPosition(), this.body2.getPosition())[0], 0.001);
     }
     
     @Test
     public void testDistanceY() {
-        assertEquals(-3.0, calc.Distances(this.body1.getPosition(), this.body2.getPosition())[1], 0.001);
+        assertEquals(-3.0, calc.distances(this.body1.getPosition(), this.body2.getPosition())[1], 0.001);
     }
 
     @Test
     public void testDistanceZ() {
-        assertEquals(-2.0, calc.Distances(this.body1.getPosition(), this.body2.getPosition())[2], 0.001);
+        assertEquals(-2.0, calc.distances(this.body1.getPosition(), this.body2.getPosition())[2], 0.001);
     }
     
     @Test
     public void testDistanceTotal() {
-        assertEquals(7.0, calc.Distances(this.body1.getPosition(), this.body2.getPosition())[3], 0.001);
+        assertEquals(7.0, calc.distances(this.body1.getPosition(), this.body2.getPosition())[3], 0.001);
     }
     
     @Test
     public void testForceX() {
-        assertEquals(35.0 , calc.Force(this.body1, this.body2)[0], 0.1);
+        assertEquals(35.0 , calc.force(this.body1, this.body2)[0], 0.1);
     }
     
     @Test
     public void testForceY() {
-        assertEquals(-17.5 , calc.Force(this.body1, this.body2)[1], 0.1);        
+        assertEquals(-17.5 , calc.force(this.body1, this.body2)[1], 0.1);        
     }
     
     @Test
     public void testForceZ() {
-        assertEquals(-11.7 , calc.Force(this.body1, this.body2)[2], 0.1);        
+        assertEquals(-11.7 , calc.force(this.body1, this.body2)[2], 0.1);        
     }
 }

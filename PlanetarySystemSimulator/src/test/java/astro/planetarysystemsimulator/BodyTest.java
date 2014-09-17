@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package astrotest;
+package astro.planetarysystemsimulator;
 import astro.planetarysystemsimulator.Body;
 
 import org.junit.After;
