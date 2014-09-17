@@ -15,11 +15,15 @@ package astro.planetarysystemsimulator;
 //to the Velocity Verlet integration algorithm.
 public class VerletIntegrator {
     private AccelerationCalculator accCalc;
+    private VelocityCalculator velCalc;
+    private PositionCalculator posCalc;
     private Body[] bodies;
     private int t;  //timestep used in integration
 
     public VerletIntegrator(Body[] bodies)  {
         this.accCalc = new AccelerationCalculator();
+        this.velCalc = new VelocityCalculator();
+        this.posCalc = new PositionCalculator();
         this.bodies = bodies;
     }
     
@@ -40,6 +44,18 @@ public class VerletIntegrator {
     public void saveAccelerations() {
         for(Body x : this.bodies) {
             x.saveAcceleration();
+        }
+    }
+    
+    public void newVelocities() {
+        for(Body x : this.bodies) {
+            x.setVelocity(this.velCalc.newVelocity(x, t));
+        }
+    }
+    
+    public void newPositions() {
+        for(Body x : this.bodies) {
+            x.setPosition(this.posCalc.newPosition(x,t));
         }
     }
 }

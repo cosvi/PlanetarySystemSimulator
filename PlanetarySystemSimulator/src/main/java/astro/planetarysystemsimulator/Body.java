@@ -66,6 +66,14 @@ public class Body {
         return this.name;
     }
     
+    public double[] getAcceleration() {
+        return this.acceleration;
+    }
+    
+    public double[] getAccelerationOld() {
+        return this.accelerationOld;
+    }
+    
     public void accelerate(double[] acceleration) {
         for (int i = 0; i < 3; i++) {
             this.acceleration[i] += acceleration[i];
