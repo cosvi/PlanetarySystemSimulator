@@ -66,10 +66,18 @@ public class Body {
         return this.name;
     }
     
+    public void setAcceleration(double[] acc) {
+        this.acceleration = acc;
+    } 
+        
     public double[] getAcceleration() {
         return this.acceleration;
     }
     
+    public void setAccelerationOld(double[] acc) {
+        this.accelerationOld = acc;
+    } 
+        
     public double[] getAccelerationOld() {
         return this.accelerationOld;
     }

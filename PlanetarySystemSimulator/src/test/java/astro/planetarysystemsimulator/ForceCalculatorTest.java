@@ -17,9 +17,6 @@ import static org.junit.Assert.*;
  *
  * @author jussi
  */
-import astro.planetarysystemsimulator.ForceCalculator;
-import astro.planetarysystemsimulator.Body;
-
 public class ForceCalculatorTest {
     
     ForceCalculator calc;

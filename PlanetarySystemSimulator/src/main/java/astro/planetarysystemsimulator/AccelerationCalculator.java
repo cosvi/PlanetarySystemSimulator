@@ -24,8 +24,8 @@ public class AccelerationCalculator {
         double[] acc1 = new double[]{0,0,0}, acc2 = new double[]{0,0,0};
         double[] force = this.forcecalc.force(body1, body2);
         for (int i = 0; i < 3; i++) {
-            acc1[i] = force[i] / body1.getMass();
-            acc2[i] = -force[i] / body2.getMass();
+            acc1[i] = -force[i] / body1.getMass();
+            acc2[i] = force[i] / body2.getMass();
         }
         double[][] accelerations = new double[][]{acc1, acc2};
         return accelerations;
