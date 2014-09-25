@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 
-package astro.planetarysystemsimulator;
+package planetarysystemsimulator.astro;
 
+import planetarysystemsimulator.astro.Body;
+import planetarysystemsimulator.astro.ForceCalculator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -57,16 +59,16 @@ public class ForceCalculatorTest {
     
     @Test
     public void testForceX() {
-        assertEquals(35.0 , calc.force(this.body1, this.body2)[0], 0.1);
+        assertEquals(2.333E-3 , calc.force(this.body1, this.body2)[0], 1E-6);
     }
     
     @Test
     public void testForceY() {
-        assertEquals(-17.5 , calc.force(this.body1, this.body2)[1], 0.1);        
+        assertEquals(-1.167E-3 , calc.force(this.body1, this.body2)[1], 1E-6);  
     }
     
     @Test
     public void testForceZ() {
-        assertEquals(-11.7 , calc.force(this.body1, this.body2)[2], 0.1);        
+        assertEquals(-0.778E-3 , calc.force(this.body1, this.body2)[2], 1E-6);        
     }
 }

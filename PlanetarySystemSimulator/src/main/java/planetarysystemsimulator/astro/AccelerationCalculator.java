@@ -4,15 +4,19 @@
  * and open the template in the editor.
  */
 
-package astro.planetarysystemsimulator;
+package planetarysystemsimulator.astro;
 
 /**
- *
+ * This class handles the calculation of the 
+ * acceleration caused by the force between
+ * two objects. 
+ * 
  * @author jussi
+ * 
+ * 
  */
 
-//This class handles the calculation of acceleration
-//caused by forces between objects.
+//Might be combined with ForceCalculator
 public class AccelerationCalculator {
     ForceCalculator forcecalc;
     

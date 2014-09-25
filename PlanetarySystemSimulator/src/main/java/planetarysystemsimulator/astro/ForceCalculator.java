@@ -4,15 +4,18 @@
  * and open the template in the editor.
  */
 
-package astro.planetarysystemsimulator;
-//import java.lang.Math;
+package planetarysystemsimulator.astro;
 
 /**
- *
+ * This class handles the calculation of the
+ * gravitational force between two objects.
+ * 
  * @author jussi
+ * 
+ * 
  */
 
-//This class handles the calculation of forces between objects
+//Might be combined with AccelerationCalculator.
 public class ForceCalculator {
     private double G;       //gravitational constant
 

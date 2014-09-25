@@ -4,17 +4,18 @@
  * and open the template in the editor.
  */
 
-package astro.planetarysystemsimulator;
-
-/**
- *
- * @author jussi
- */
+package planetarysystemsimulator.astro;
 
 import java.awt.Component;
 
-//This class handles the movement of the objects according
-//to the Velocity Verlet integration algorithm.
+/**
+ * This class handles the movement of the objects
+ * according to the Velocity Verlet integration
+ * algorithm.
+ * 
+ * @author jussi
+ */
+
 public class VerletIntegrator {
     private AccelerationCalculator accCalc;
     private VelocityCalculator velCalc;

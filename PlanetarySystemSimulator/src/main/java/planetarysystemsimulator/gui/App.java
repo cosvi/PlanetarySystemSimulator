@@ -3,15 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package App;
+package planetarysystemsimulator.gui;
+
+import javax.swing.SwingUtilities;
+import planetarysystemsimulator.astro.Body;
 
 /**
- *
+ * This is the main class of the project.
+ * It sets the whole thing going.
+ * 
  * @author jussi
  */
-import javax.swing.SwingUtilities;
-import gui.planetarysystemsimulator.GUI;
-import astro.planetarysystemsimulator.Body;
 
 public class App {
     public static void main( String[] args ) {

@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 
-package astro.planetarysystemsimulator;
+package planetarysystemsimulator.astro;
 
+import planetarysystemsimulator.astro.Body;
+import planetarysystemsimulator.astro.VelocityCalculator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

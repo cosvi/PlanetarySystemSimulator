@@ -4,17 +4,16 @@
  * and open the template in the editor.
  */
 
-package astro.planetarysystemsimulator;
+package planetarysystemsimulator.astro;
 
 /**
- *
+ * This class calculates the new positions of objects
+ * based on their velocities and accelerations.
+ * 
  * @author jussi
  */
 
-//This class calculates the new positions of objects
-//based on their velocities and accelerations.
-
-//Does it need to be a separate class???
+//Might be combined with VelocityCalculator
 public class PositionCalculator {
     
     public PositionCalculator() {

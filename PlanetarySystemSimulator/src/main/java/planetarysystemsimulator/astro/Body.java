@@ -4,16 +4,22 @@
  * and open the template in the editor.
  */
 
-package astro.planetarysystemsimulator;
+package planetarysystemsimulator.astro;
 
-/**
- *
- * @author jussi
- */
 
 import java.awt.Graphics;
 
-//This class depicts all the planetary system objects.
+/**
+ * Instances of this class represent the
+ * different planetary system bodies. This
+ * class provides methods to manipulate those
+ * objects and to draw them to the screen.
+ * 
+ * @author jussi
+ * 
+ */
+
+//
 //If necessary subclasses can be added to handle different
 //objects, such as stars, planets, asteroids, etc.
 public class Body {
@@ -30,7 +36,6 @@ public class Body {
             this.mass = mass;
         } else {
             this.mass = 1.0;
-            System.out.println("Mass has to be positive. It has been set to 1.0");
         }
         this.acceleration = new double[]{0, 0, 0};
         this.accelerationOld = new double[]{0, 0, 0};
@@ -91,13 +96,11 @@ public class Body {
     }
     
     public void saveAcceleration() {
-        this.accelerationOld = this.acceleration;
-        for (double x : this.acceleration) {
-            x = 0.0;
-        }
+        this.accelerationOld = this.getAcceleration();
+        this.setAcceleration(new double[]{0, 0, 0});
     }
     
     public void draw(Graphics g) {
-        g.fillOval((int)this.position[0], (int)this.position[1], 3, 3);
+        g.fillOval((int)this.position[0], (int)this.position[1], 7, 7);
     }
 }

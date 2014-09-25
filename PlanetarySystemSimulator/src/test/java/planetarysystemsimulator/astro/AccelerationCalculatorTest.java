@@ -5,8 +5,10 @@
  * and open the template in the editor.
  */
 
-package astro.planetarysystemsimulator;
+package planetarysystemsimulator.astro;
 
+import planetarysystemsimulator.astro.Body;
+import planetarysystemsimulator.astro.AccelerationCalculator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -36,32 +38,32 @@ public class AccelerationCalculatorTest {
 
     @Test
     public void testAccelerationX1() {
-        assertEquals(-3.4985, calc.acceleration(this.body1, this.body2)[0][0], 0.001);
+        assertEquals(-2.333E-4, calc.acceleration(this.body1, this.body2)[0][0], 1E-7);
     }
 
     @Test
     public void testAccelerationX2() {
-        assertEquals(1.7493, calc.acceleration(this.body1, this.body2)[1][0], 0.001);
+        assertEquals(1.167E-4, calc.acceleration(this.body1, this.body2)[1][0], 1E-7);
     }
     
     @Test
     public void testAccelerationY1() {
-        assertEquals(1.7493, calc.acceleration(this.body1, this.body2)[0][1], 0.001);
+        assertEquals(1.167E-4, calc.acceleration(this.body1, this.body2)[0][1], 1E-7);
     }
     
     @Test
     public void testAccelerationY2() {
-        assertEquals(-0.8746, calc.acceleration(this.body1, this.body2)[1][1], 0.001);
+        assertEquals(-0.583E-4, calc.acceleration(this.body1, this.body2)[1][1], 1E-7);
     }
     
     @Test
     public void testAccelerationZ1() {
-        assertEquals(1.1662, calc.acceleration(this.body1, this.body2)[0][2], 0.001);
+        assertEquals(0.778E-4, calc.acceleration(this.body1, this.body2)[0][2], 1E-7);
     }
     
     @Test
     public void testAccelerationZ2() {
-        assertEquals(-0.5831, calc.acceleration(this.body1, this.body2)[1][2], 0.001);
+        assertEquals(-0.389E-4, calc.acceleration(this.body1, this.body2)[1][2], 1E-7);
     }
         
 }
