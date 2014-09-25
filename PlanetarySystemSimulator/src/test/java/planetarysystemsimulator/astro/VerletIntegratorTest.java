@@ -4,17 +4,17 @@
  * and open the template in the editor.
  */
 
-package astro.planetarysystemsimulator;
+package planetarysystemsimulator.astro;
 
-import astro.planetarysystemsimulator.VerletIntegrator;
-import astro.planetarysystemsimulator.Body;
+import planetarysystemsimulator.astro.VerletIntegrator;
+import planetarysystemsimulator.astro.Body;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import gui.planetarysystemsimulator.DrawingBoard;
+import planetarysystemsimulator.gui.DrawingBoard;
 
 /**
  *

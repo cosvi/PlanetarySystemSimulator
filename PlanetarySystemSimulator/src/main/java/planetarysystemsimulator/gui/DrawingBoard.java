@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.planetarysystemsimulator;
+package planetarysystemsimulator.gui;
 
 
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics;
-import astro.planetarysystemsimulator.Body;
+import planetarysystemsimulator.astro.Body;
 
 /**
  * This class provides the basis for drawing

@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 
-package gui.planetarysystemsimulator;
+package planetarysystemsimulator.gui;
 
 import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
-import astro.planetarysystemsimulator.Body;
-import astro.planetarysystemsimulator.VerletIntegrator;
+import planetarysystemsimulator.astro.Body;
+import planetarysystemsimulator.astro.VerletIntegrator;
 
 /**
  * This class creates the graphical

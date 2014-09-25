@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 
-package astro.planetarysystemsimulator;
+package planetarysystemsimulator.astro;
 
-import astro.planetarysystemsimulator.Body;
+import planetarysystemsimulator.astro.Body;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
