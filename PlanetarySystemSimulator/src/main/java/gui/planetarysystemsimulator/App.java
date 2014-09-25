@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package planetarysystemsimulator.gui;
+package gui.planetarysystemsimulator;
 
 import javax.swing.SwingUtilities;
-import planetarysystemsimulator.astro.Body;
+import astro.planetarysystemsimulator.Body;
 
 /**
  * This is the main class of the project.

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package planetarysystemsimulator.astro;
+package astro.planetarysystemsimulator;
 
 /**
  * This class calculates the new positions of objects

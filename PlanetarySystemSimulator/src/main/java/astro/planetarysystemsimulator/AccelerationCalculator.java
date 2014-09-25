@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package planetarysystemsimulator.astro;
+package astro.planetarysystemsimulator;
 
 /**
  * This class handles the calculation of the 

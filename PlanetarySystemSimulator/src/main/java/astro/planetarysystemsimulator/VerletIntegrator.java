@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package planetarysystemsimulator.astro;
+package astro.planetarysystemsimulator;
 
 import java.awt.Component;
 
@@ -33,6 +33,10 @@ public class VerletIntegrator {
         this.t = 1;
     }
     
+    public Body[] getBodies() {
+        return this.bodies;
+    }
+
     //Calculates the accelerations for each pair of objects
     public void accelerate() {
         this.saveAccelerations();
