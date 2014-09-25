@@ -11,6 +11,8 @@ package astro.planetarysystemsimulator;
  * @author jussi
  */
 
+import java.awt.Graphics;
+
 //This class depicts all the planetary system objects.
 //If necessary subclasses can be added to handle different
 //objects, such as stars, planets, asteroids, etc.
@@ -93,5 +95,9 @@ public class Body {
         for (double x : this.acceleration) {
             x = 0.0;
         }
+    }
+    
+    public void draw(Graphics g) {
+        g.fillOval((int)this.position[0], (int)this.position[1], 3, 3);
     }
 }

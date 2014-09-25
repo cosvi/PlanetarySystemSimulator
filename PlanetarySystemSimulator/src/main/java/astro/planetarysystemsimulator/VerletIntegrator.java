@@ -11,6 +11,8 @@ package astro.planetarysystemsimulator;
  * @author jussi
  */
 
+import java.awt.Component;
+
 //This class handles the movement of the objects according
 //to the Velocity Verlet integration algorithm.
 public class VerletIntegrator {
@@ -19,16 +21,19 @@ public class VerletIntegrator {
     private PositionCalculator posCalc;
     private Body[] bodies;
     private int t;  //timestep used in integration
-
-    public VerletIntegrator(Body[] bodies)  {
+    private Component comp;
+    
+    public VerletIntegrator(Body[] bodies, Component comp)  {
         this.accCalc = new AccelerationCalculator();
         this.velCalc = new VelocityCalculator();
         this.posCalc = new PositionCalculator();
         this.bodies = bodies;
+        this.comp = comp;
+        this.t = 1;
     }
     
     //Calculates the accelerations for each pair of objects
-    public void Accelerate() {
+    public void accelerate() {
         this.saveAccelerations();
         double[][] accelerations;
         for (int i = 0; i < this.bodies.length; i++) {
@@ -56,6 +61,25 @@ public class VerletIntegrator {
     public void newPositions() {
         for(Body x : this.bodies) {
             x.setPosition(this.posCalc.newPosition(x,t));
+        }
+    }
+    
+    public void integrate() {
+        this.newPositions();
+        this.accelerate();
+        this.newVelocities();
+    }
+    
+    public void run() {
+        this.accelerate();
+        for (int i = 0; i < 100; i++) {
+            this.integrate();
+            if (i % 10 == 0) {
+                System.out.println(i);
+                System.out.println(this.bodies[2].getPosition()[0]);
+                System.out.println(this.bodies[1].getPosition()[0]);
+                this.comp.repaint();
+            }
         }
     }
 }
