@@ -89,17 +89,33 @@ public class Body {
         return this.accelerationOld;
     }
     
+    /**
+     * Adds the input acceleration to
+     * the current acceleration.
+     * @param acceleration 
+     */
+    
     public void accelerate(double[] acceleration) {
         for (int i = 0; i < 3; i++) {
             this.acceleration[i] += acceleration[i];
         }
     }
     
-    public void saveAcceleration() {
+    /**
+     * Saves the previous value of acceleration
+     * so it can be recalled when needed.
+     */
+     public void saveAcceleration() {
         this.accelerationOld = this.getAcceleration();
         this.setAcceleration(new double[]{0, 0, 0});
     }
     
+    /**
+     * Draws the body to the drawing
+     * board in it's current position.
+     * @param g 
+     */
+     
     public void draw(Graphics g) {
         g.fillOval((int)this.position[0], (int)this.position[1], 7, 7);
     }
