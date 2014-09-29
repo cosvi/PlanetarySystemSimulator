@@ -30,6 +30,13 @@ public class Body {
     private double[] acceleration;   //in units of ???,     a(t)
     private double[] accelerationOld;   //in units of ???,    a(t-1)
 
+    /**
+     * The constructor sets the acceleration
+     * @param name
+     * @param mass 
+     */
+    
+    
     public Body(String name, double mass) {
         this.name = name;
         if (mass > 0.0) {
@@ -102,8 +109,8 @@ public class Body {
     }
     
     /**
-     * Saves the previous value of acceleration
-     * so it can be recalled when needed.
+     * Saves the current value of acceleration
+     * to the accelerationOld attribute.
      */
      public void saveAcceleration() {
         this.accelerationOld = this.getAcceleration();
