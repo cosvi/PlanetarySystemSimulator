@@ -23,6 +23,7 @@ public class VerletIntegrator {
     private Body[] bodies;
     private int t;  //timestep used in integration
     private Component comp;
+    private boolean running;  //Is integrator running
     
     public VerletIntegrator(Body[] bodies, Component comp)  {
         this.accCalc = new AccelerationCalculator();
@@ -31,10 +32,19 @@ public class VerletIntegrator {
         this.bodies = bodies;
         this.comp = comp;
         this.t = 1;
+        this.running = true;
     }
     
     public Body[] getBodies() {
         return this.bodies;
+    }
+    
+    public void toggleRunning() {
+        this.running = !this.running;
+    }
+    
+    public boolean getRunning() {
+        return this.running;
     }
 
     //Calculates the accelerations for each pair of objects
@@ -76,16 +86,8 @@ public class VerletIntegrator {
     }
     
     public void run() {
-        this.accelerate();
-        for (int i = 0; i < 100; i++) {
             this.integrate();
-            if (i % 10 == 0) {
-                System.out.println(i);
-                System.out.println(this.bodies[2].getPosition()[0]);
-                System.out.println(this.bodies[1].getPosition()[0]);
-                this.comp.repaint();
-            }
-        }
+            this.comp.repaint();
     }
 }
 

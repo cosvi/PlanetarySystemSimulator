@@ -8,6 +8,8 @@ package planetarysystemsimulator.gui;
 
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.BorderLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import planetarysystemsimulator.astro.Body;
@@ -25,9 +27,12 @@ public class GUI implements Runnable {
     private JFrame frame;
     private Body[] bodies;
     private VerletIntegrator verlet;
+    private DrawingBoard board;
     
-    public GUI(Body[] bodies) {
+    public GUI(Body[] bodies, DrawingBoard board, VerletIntegrator verlet) {
         this.bodies = bodies;
+        this.board = board;
+        this.verlet = verlet;
     }
 
     @Override
@@ -41,13 +46,16 @@ public class GUI implements Runnable {
 
         frame.pack();
         frame.setVisible(true);
-    }
+
+     }
 
     private void luoKomponentit(Container container) {
-        DrawingBoard board = new DrawingBoard(this.bodies);
-        this.verlet = new VerletIntegrator(this.bodies, board);
-        container.add(board);
-        this.verlet.run();
+        container.setLayout(new BorderLayout());
+        container.add(this.board);
+        
+        JButton pause = new JButton("Pause");
+        pause.addActionListener(new PauseListener(this.verlet));
+        container.add(pause, BorderLayout.SOUTH);
     }
 
     public JFrame getFrame() {

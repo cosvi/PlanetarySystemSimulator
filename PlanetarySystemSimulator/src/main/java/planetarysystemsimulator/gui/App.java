@@ -7,6 +7,7 @@ package planetarysystemsimulator.gui;
 
 import javax.swing.SwingUtilities;
 import planetarysystemsimulator.astro.Body;
+import planetarysystemsimulator.astro.VerletIntegrator;
 
 /**
  * This is the main class of the project.
@@ -29,8 +30,23 @@ public class App {
         body3.setPosition(new double[]{350.0, 600.0, -1.0});
         body3.setVelocity(new double[]{2.4, 0.0, 0.0});
         
-        GUI gui = new GUI(new Body[]{body1, body2, body3});
+        Body[] bodies = new Body[]{body1, body2, body3};
+        DrawingBoard board = new DrawingBoard(bodies);
+        VerletIntegrator verlet = new VerletIntegrator(bodies, board);
+        GUI gui = new GUI(bodies, board, verlet);
         
         SwingUtilities.invokeLater(gui);
+        
+        verlet.accelerate();  //calculate the beginning velocities
+        int i = 0;
+        while (true) {
+            i++;
+            while (verlet.getRunning()) {
+                verlet.run();
+                try {
+                Thread.sleep(50);
+                } catch ( InterruptedException e ){}
+            }
+        }
     }
 }
