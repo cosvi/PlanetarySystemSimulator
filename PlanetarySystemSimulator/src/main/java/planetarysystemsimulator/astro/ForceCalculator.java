@@ -33,7 +33,7 @@ public class ForceCalculator {
     
     public double[] force(Body body1, Body body2) {
         double[] distances = this.distances(body1.getPosition(), body2.getPosition());
-        double force = G * body1.getMass() * body2.getMass() / Math.pow(distances[3],2);
+        double force = this.G * body1.getMass() * body2.getMass() / Math.pow(distances[3],2);
         double[] forces = {0,0,0};
         forces[0] = force * distances[0] / distances[3];
         forces[1] = force * distances[1] / distances[3];

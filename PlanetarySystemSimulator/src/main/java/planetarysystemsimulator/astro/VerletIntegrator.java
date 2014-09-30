@@ -46,6 +46,14 @@ public class VerletIntegrator {
     public boolean getRunning() {
         return this.running;
     }
+    
+    public void doubleG() {
+        this.accCalc.forcecalc.setG(this.accCalc.forcecalc.getG() * 2);
+    }
+    
+    public void halveG() {
+        this.accCalc.forcecalc.setG(this.accCalc.forcecalc.getG() / 2.0);
+    }
 
     //Calculates the accelerations for each pair of objects
     public void accelerate() {
