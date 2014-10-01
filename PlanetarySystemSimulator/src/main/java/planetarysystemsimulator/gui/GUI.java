@@ -40,7 +40,7 @@ public class GUI implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("PlanetarySystemSimulator");
-        frame.setPreferredSize(new Dimension(900, 700));
+        frame.setPreferredSize(new Dimension(1000, 1000));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 

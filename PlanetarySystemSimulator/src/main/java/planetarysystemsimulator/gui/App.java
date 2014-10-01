@@ -21,16 +21,40 @@ public class App {
         Body body1 = new Body("Sun", 2000000);
         body1.setPosition(new double[]{350.0, 350.0, 0.0});
         body1.setVelocity(new double[]{0.0, 0.0, 0.0});
+
+        Body body2 = new Body("Mercury", 0.3);
+        body2.setPosition(new double[]{355.8, 350.0, 0.0});
+        body2.setVelocity(new double[]{0.0, -0.47, 0.0});
+
+        Body body3 = new Body("Venus", 4.9);
+        body3.setPosition(new double[]{360.8, 350.0, 0.0});
+        body3.setVelocity(new double[]{0.0, -0.35, 0.0});
+
+        Body body4 = new Body("Earth", 6);
+        body4.setPosition(new double[]{365.0, 350.0, 0.0});
+        body4.setVelocity(new double[]{0.0, -0.3, 0.0});
         
-        Body body2 = new Body("Earth", 6);
-        body2.setPosition(new double[]{500.1, 352.2, 1.0});
-        body2.setVelocity(new double[]{0.0, -3.0, 0.0});
+        Body body5 = new Body("Mars", 0.6);
+        body5.setPosition(new double[]{350.0, 373.0, 0.0});
+        body5.setVelocity(new double[]{0.24, 0.0, 0.0});
         
-        Body body3 = new Body("Mars", 0.6);
-        body3.setPosition(new double[]{350.0, 600.0, -1.0});
-        body3.setVelocity(new double[]{2.4, 0.0, 0.0});
-        
-        Body[] bodies = new Body[]{body1, body2, body3};
+        Body body6 = new Body("Jupiter", 1900);
+        body6.setPosition(new double[]{350.0, 428.0, 0.0});
+        body6.setVelocity(new double[]{0.13, 0.0, 0.0});
+
+        Body body7 = new Body("Saturn", 600);
+        body7.setPosition(new double[]{350.0, 493.0, 0.0});
+        body7.setVelocity(new double[]{0.097, 0.0, 0.0});
+
+        Body body8 = new Body("Uranus", 87);
+        body8.setPosition(new double[]{637.0, 350.0, 0.0});
+        body8.setVelocity(new double[]{0.0, -0.068, 0.0});
+
+        Body body9 = new Body("Neptune", 100);
+        body9.setPosition(new double[]{800.0, 350.0, 0.0});
+        body9.setVelocity(new double[]{0.0, -0.054, 0.0});
+
+        Body[] bodies = new Body[]{body1, body2, body3, body4, body5, body6, body7, body8, body9};
         DrawingBoard board = new DrawingBoard(bodies);
         VerletIntegrator verlet = new VerletIntegrator(bodies, board);
         GUI gui = new GUI(bodies, board, verlet);

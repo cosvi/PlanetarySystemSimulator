@@ -20,7 +20,7 @@ public class ForceCalculator {
     private double G;       //gravitational constant
 
     public ForceCalculator() {
-        this.G = 0.000667;       //in simulation units
+        this.G = 0.000000667;       //in simulation units
     }
     
     public double getG() {
