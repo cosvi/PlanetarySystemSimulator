@@ -16,10 +16,21 @@ package planetarysystemsimulator.astro;
 //Might be combined with PositionCalculator
 public class VelocityCalculator {
     
+    /**
+     * Creates a new VelocityCalculator.
+     */
     public VelocityCalculator() {
         
     }
     
+    /**
+     * Calculates the new velocity vector for
+     * a body based on its current velocity and
+     * current and previous accelerations.
+     * @param body the body whose velocity to calculate
+     * @param timestep the timestep of integration
+     * @return the new velocity vector of the body
+     */
     public double[] newVelocity(Body body, int timestep) {
         double[] velocity = new double[]{0,0,0};
         double[] oldVelocity = body.getVelocity();

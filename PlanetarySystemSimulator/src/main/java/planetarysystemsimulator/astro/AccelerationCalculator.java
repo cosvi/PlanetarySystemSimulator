@@ -20,10 +20,22 @@ package planetarysystemsimulator.astro;
 public class AccelerationCalculator {
     protected ForceCalculator forcecalc;
     
+    /**
+     * Creates a new AccelerationCalculator
+     * with it's associated ForceCalculator.
+     */
     public AccelerationCalculator() {
         this.forcecalc = new ForceCalculator();
     }
     
+    /**
+     * Calculates the acceleration caused by two
+     * bodies on each other. Returns the accelerations
+     * as two acceleration vectors, one for each body.
+     * @param body1 the first body
+     * @param body2 the second body
+     * @return the acceleration vectors of the bodies
+     */
     public double[][] acceleration(Body body1, Body body2) {
         double[] acc1 = new double[]{0,0,0}, acc2 = new double[]{0,0,0};
         double[] force = this.forcecalc.force(body1, body2);

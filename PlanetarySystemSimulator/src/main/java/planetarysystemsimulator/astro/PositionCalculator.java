@@ -16,10 +16,21 @@ package planetarysystemsimulator.astro;
 //Might be combined with VelocityCalculator
 public class PositionCalculator {
     
+    /**
+     * Creates a new PositionCalculator.
+     */
     public PositionCalculator() {
         
     }
-    
+
+    /**
+     * Sets the new position vector of the given body
+     * based on it's current position, velocity
+     * and acceleration.
+     * @param body the body whose position is to be set
+     * @param t the timestep of integration
+     * @return the new position vector of the body
+     */
     public double[] newPosition(Body body, int t) {
         double[] position = new double[]{0,0,0};
         double[] oldPosition = body.getPosition();
