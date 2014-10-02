@@ -59,16 +59,16 @@ public class ForceCalculatorTest {
     
     @Test
     public void testForceX() {
-        assertEquals(2.333E-3 , calc.force(this.body1, this.body2)[0], 1E-6);
+        assertEquals(2.333E-6 , calc.force(this.body1, this.body2)[0], 1E-9);
     }
     
     @Test
     public void testForceY() {
-        assertEquals(-1.167E-3 , calc.force(this.body1, this.body2)[1], 1E-6);  
+        assertEquals(-1.167E-6 , calc.force(this.body1, this.body2)[1], 1E-9);  
     }
     
     @Test
     public void testForceZ() {
-        assertEquals(-0.778E-3 , calc.force(this.body1, this.body2)[2], 1E-6);        
+        assertEquals(-0.778E-6 , calc.force(this.body1, this.body2)[2], 1E-9);        
     }
 }

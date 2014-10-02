@@ -17,9 +17,9 @@ import java.awt.Component;
  */
 
 public class VerletIntegrator {
-    private AccelerationCalculator accCalc;
-    private VelocityCalculator velCalc;
-    private PositionCalculator posCalc;
+    protected AccelerationCalculator accCalc;
+    protected VelocityCalculator velCalc;
+    protected PositionCalculator posCalc;
     private Body[] bodies;
     private int t;  //timestep used in integration
     private Component comp;
