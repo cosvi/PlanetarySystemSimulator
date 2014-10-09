@@ -10,9 +10,13 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.WindowConstants;
 import planetarysystemsimulator.astro.Body;
 import planetarysystemsimulator.astro.VerletIntegrator;
@@ -71,10 +75,55 @@ public class GUI implements Runnable {
         JButton halveG = new JButton("Halve G");
         halveG.addActionListener(new GHalveListener(this.verlet));
         panel.add(halveG);
-                
+        
+        JButton sun = new JButton("The Sun");
+        sun.addActionListener(new BodyListener(this.bodies[0]));
+        panel.add(sun);
+        
         return panel;
     }
 
+    public JPanel bodyDialog() {
+        int numOfButtons = 3;
+        JRadioButton[] buttons = new JRadioButton[numOfButtons];
+        final ButtonGroup group = new ButtonGroup();
+        
+        final String mass = "mass";
+        final String velX = "velocityX";
+        final String velY = "velocityY";
+        
+        String[] coms = new String[]{mass, velX, velY};
+        
+        buttons[0] = new JRadioButton("Change mass");
+        buttons[0].setActionCommand(mass);
+        
+        buttons[1] = new JRadioButton("Change x-velocity");
+        buttons[1].setActionCommand(velX);
+        
+        buttons[2] = new JRadioButton("Change y-velocity");
+        buttons[2].setActionCommand(velY);
+        
+        for (int i = 0; i < numOfButtons; i++) {
+            group.add(buttons[i]);
+        }
+        
+        JButton changeButton = new JButton("Change");
+        changeButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                String com = group.getSelection().getActionCommand();
+                
+                if (com == mass) {
+                    
+                } else if (com == velX) {
+                    
+                } else if (com == velY) {
+                    
+                }
+            }
+        });
+        
+    }
+    
     public JFrame getFrame() {
         return frame;
     }
