@@ -6,6 +6,7 @@
 
 package planetarysystemsimulator.gui;
 
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import planetarysystemsimulator.astro.Body;
@@ -17,13 +18,18 @@ import planetarysystemsimulator.astro.Body;
 public class BodyListener implements ActionListener {
     
     private Body body;
+    private Container cont;
+    private GUI gui;
     
-    public BodyListener(Body body) {
+    public BodyListener(GUI gui, Container cont, Body body) {
         this.body = body;
+        this.gui = gui;
+        this.cont = cont;
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
-        
+        this.cont.add(this.gui.bodyDialog(this.body));
+        System.out.println(1);
     }
 }

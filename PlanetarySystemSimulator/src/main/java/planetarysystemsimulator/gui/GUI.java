@@ -12,9 +12,11 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.WindowConstants;
@@ -77,13 +79,13 @@ public class GUI implements Runnable {
         panel.add(halveG);
         
         JButton sun = new JButton("The Sun");
-        sun.addActionListener(new BodyListener(this.bodies[0]));
+        sun.addActionListener(new BodyListener(this, this.frame.getContentPane(), this.bodies[0]));
         panel.add(sun);
         
         return panel;
     }
 
-    public JPanel bodyDialog() {
+    public JPanel bodyDialog(final Body body) {
         int numOfButtons = 3;
         JRadioButton[] buttons = new JRadioButton[numOfButtons];
         final ButtonGroup group = new ButtonGroup();
@@ -113,7 +115,10 @@ public class GUI implements Runnable {
                 String com = group.getSelection().getActionCommand();
                 
                 if (com == mass) {
-                    
+                    String s = (String)JOptionPane.showInternalInputDialog(
+                    frame, "Give new mass:",
+                    "Mass", JOptionPane.PLAIN_MESSAGE);
+                    body.setMass(Double.parseDouble(s));
                 } else if (com == velX) {
                     
                 } else if (com == velY) {
@@ -121,7 +126,21 @@ public class GUI implements Runnable {
                 }
             }
         });
+        JPanel box = new JPanel();
+        box.setLayout(new BoxLayout(box, BoxLayout.PAGE_AXIS));
         
+        for (int i = 0; i < numOfButtons; i++) {
+            box.add(buttons[i]);
+        }
+        
+        JPanel pane = new JPanel(new BorderLayout());
+        pane.add(box, BorderLayout.PAGE_START);
+        pane.add(changeButton, BorderLayout.PAGE_END);
+        System.out.println(2);
+        pane.setOpaque(true);
+        pane.setVisible(true);
+        pane.setSize(100,100);
+        return pane;
     }
     
     public JFrame getFrame() {
