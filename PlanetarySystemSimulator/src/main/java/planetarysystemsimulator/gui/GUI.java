@@ -111,19 +111,31 @@ public class GUI implements Runnable {
         
         JButton changeButton = new JButton("Change");
         changeButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent ae) {
                 String com = group.getSelection().getActionCommand();
                 
                 if (com == mass) {
-                    String s = (String)JOptionPane.showInternalInputDialog(
+                    String s = (String)JOptionPane.showInputDialog(
                     frame, "Give new mass:",
                     "Mass", JOptionPane.PLAIN_MESSAGE);
                     body.setMass(Double.parseDouble(s));
                 } else if (com == velX) {
-                    
+                    String s = (String)JOptionPane.showInputDialog(
+                    frame, "Give horizontal velocity change:",
+                    "Horizontal kick", JOptionPane.PLAIN_MESSAGE);
+                    double[] vel = body.getVelocity();
+                    vel[0] += Double.parseDouble(s);
+                    body.setVelocity(vel);
                 } else if (com == velY) {
-                    
+                    String s = (String)JOptionPane.showInputDialog(
+                    frame, "Give horizontal velocity change:",
+                    "Horizontal kick", JOptionPane.PLAIN_MESSAGE);
+                    double[] vel = body.getVelocity();
+                    vel[1] += Double.parseDouble(s);
+                    body.setVelocity(vel);                    
                 }
+                return;
             }
         });
         JPanel box = new JPanel();
@@ -136,10 +148,6 @@ public class GUI implements Runnable {
         JPanel pane = new JPanel(new BorderLayout());
         pane.add(box, BorderLayout.PAGE_START);
         pane.add(changeButton, BorderLayout.PAGE_END);
-        System.out.println(2);
-        pane.setOpaque(true);
-        pane.setVisible(true);
-        pane.setSize(100,100);
         return pane;
     }
     

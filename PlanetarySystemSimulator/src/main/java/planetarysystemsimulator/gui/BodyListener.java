@@ -6,6 +6,7 @@
 
 package planetarysystemsimulator.gui;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,7 +30,8 @@ public class BodyListener implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent ae) {
-        this.cont.add(this.gui.bodyDialog(this.body));
-        System.out.println(1);
+        this.cont.add(this.gui.bodyDialog(this.body), BorderLayout.EAST);
+        this.cont.revalidate();
+        this.cont.repaint();
     }
 }
