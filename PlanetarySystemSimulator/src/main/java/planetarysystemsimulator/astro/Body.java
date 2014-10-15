@@ -65,7 +65,7 @@ public class Body {
         this.color = color;
     }
     
-    public Color getColor(Color color) {
+    public Color getColor() {
         return this.color;
     }
     
@@ -158,15 +158,25 @@ public class Body {
         this.accelerationOld = this.getAcceleration();
         this.setAcceleration(new double[]{0, 0, 0});
     }
-    
+/*     
+     public int[] scalePosition() {
+         int[] pos = new int[]{0,0,0};
+         pos[0] = 400 + (int)(13.0/18.0 * this.position[0]);
+         pos[1] = 370 - (int)(13.0/18.0 * this.position[1]);
+         pos[2] = (int)(this.position[2]);
+         return pos;
+     }
+*/    
     /**
      * Draws the body to the drawing
      * board in it's current position.
      * @param g the graphics object that controls the output
      */
-     
+/*     
     public void draw(Graphics g) {
         g.setColor(this.color);
-        g.fillOval((int)this.position[0], (int)this.position[1], this.size, this.size );
-    }
+        int[] pos = this.scalePosition();
+        g.fillOval(pos[0], pos[1], this.size, this.size );
+//        g.fillOval((int)this.position[0], (int)this.position[1], this.size, this.size );
+    }*/
 }

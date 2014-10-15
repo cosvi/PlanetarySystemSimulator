@@ -47,7 +47,7 @@ public class GUI implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("PlanetarySystemSimulator");
-        frame.setPreferredSize(new Dimension(1000, 700));
+        frame.setPreferredSize(new Dimension(1000, 740));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,7 +69,7 @@ public class GUI implements Runnable {
     }
     
     private JPanel createMenu() {
-        JPanel panel = new JPanel(new GridLayout(this.bodies.size() + 2 ,1));
+        JPanel panel = new JPanel(new GridLayout(this.bodies.size() + 4 ,1));
         
         JButton doubleG = new JButton("Double G");
         doubleG.addActionListener(new GDoubleListener(this.verlet));
@@ -78,6 +78,14 @@ public class GUI implements Runnable {
         JButton halveG = new JButton("Halve G");
         halveG.addActionListener(new GHalveListener(this.verlet));
         panel.add(halveG);
+        
+        JButton zoomIn = new JButton("Zoom in");
+        zoomIn.addActionListener(new ZoomInListener(this.board));
+        panel.add(zoomIn);
+        
+        JButton zoomOut = new JButton("Zoom out");
+        zoomOut.addActionListener(new ZoomOutListener(this.board));
+        panel.add(zoomOut);
         
         for (Body x : this.bodies) {
             JButton but = new JButton(x.getName());
