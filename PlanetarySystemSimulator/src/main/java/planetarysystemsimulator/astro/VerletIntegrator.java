@@ -7,6 +7,7 @@
 package planetarysystemsimulator.astro;
 
 import java.awt.Component;
+import java.util.ArrayList;
 
 /**
  * This class handles the movement of the objects
@@ -20,7 +21,7 @@ public class VerletIntegrator {
     protected AccelerationCalculator accCalc;
     protected VelocityCalculator velCalc;
     protected PositionCalculator posCalc;
-    private Body[] bodies;
+    private ArrayList<Body> bodies;
     private int t;  //timestep used in integration
     private Component comp;
     private boolean running;  //Is integrator running
@@ -35,7 +36,7 @@ public class VerletIntegrator {
      * @param comp the component that handles the drawing
      * of the bodies
      */
-    public VerletIntegrator(Body[] bodies, Component comp)  {
+    public VerletIntegrator(ArrayList<Body> bodies, Component comp)  {
         this.accCalc = new AccelerationCalculator();
         this.velCalc = new VelocityCalculator();
         this.posCalc = new PositionCalculator();
@@ -45,7 +46,7 @@ public class VerletIntegrator {
         this.running = true;
     }
     
-    public Body[] getBodies() {
+    public ArrayList<Body> getBodies() {
         return this.bodies;
     }
     
@@ -87,11 +88,11 @@ public class VerletIntegrator {
     public void accelerate() {
         this.saveAccelerations();
         double[][] accelerations;
-        for (int i = 0; i < this.bodies.length; i++) {
-            for (int j = i+1;j < this.bodies.length; j++) {
-                accelerations = this.accCalc.acceleration(this.bodies[i], this.bodies[j]);
-                this.bodies[i].accelerate(accelerations[0]);
-                this.bodies[j].accelerate(accelerations[1]);
+        for (int i = 0; i < this.bodies.size(); i++) {
+            for (int j = i+1;j < this.bodies.size(); j++) {
+                accelerations = this.accCalc.acceleration(this.bodies.get(i), this.bodies.get(j));
+                this.bodies.get(i).accelerate(accelerations[0]);
+                this.bodies.get(j).accelerate(accelerations[1]);
                 
             }
         }

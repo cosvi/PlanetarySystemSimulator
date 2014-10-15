@@ -9,6 +9,7 @@ package planetarysystemsimulator.gui;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import planetarysystemsimulator.astro.Body;
 
 /**
@@ -20,10 +21,10 @@ import planetarysystemsimulator.astro.Body;
 
 public class DrawingBoard extends JPanel {
     
-    private Body[] bodies;
+    private ArrayList<Body> bodies;
 
-    public DrawingBoard(Body[] bodies) {
-        super.setBackground(Color.WHITE);
+    public DrawingBoard(ArrayList<Body> bodies) {
+        super.setBackground(Color.black);
         this.bodies = bodies;
     }
 

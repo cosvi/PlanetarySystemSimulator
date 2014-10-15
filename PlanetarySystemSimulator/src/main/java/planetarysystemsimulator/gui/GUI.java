@@ -12,6 +12,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -33,11 +34,11 @@ import planetarysystemsimulator.astro.VerletIntegrator;
 public class GUI implements Runnable {
 
     private JFrame frame;
-    private Body[] bodies;
+    private ArrayList<Body> bodies;
     private VerletIntegrator verlet;
     private DrawingBoard board;
     
-    public GUI(Body[] bodies, DrawingBoard board, VerletIntegrator verlet) {
+    public GUI(ArrayList<Body> bodies, DrawingBoard board, VerletIntegrator verlet) {
         this.bodies = bodies;
         this.board = board;
         this.verlet = verlet;
@@ -46,7 +47,7 @@ public class GUI implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("PlanetarySystemSimulator");
-        frame.setPreferredSize(new Dimension(1000, 1000));
+        frame.setPreferredSize(new Dimension(1000, 700));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,7 +69,7 @@ public class GUI implements Runnable {
     }
     
     private JPanel createMenu() {
-        JPanel panel = new JPanel(new GridLayout(10,1));
+        JPanel panel = new JPanel(new GridLayout(this.bodies.size() + 2 ,1));
         
         JButton doubleG = new JButton("Double G");
         doubleG.addActionListener(new GDoubleListener(this.verlet));
@@ -78,14 +79,22 @@ public class GUI implements Runnable {
         halveG.addActionListener(new GHalveListener(this.verlet));
         panel.add(halveG);
         
-        JButton sun = new JButton("The Sun");
-        sun.addActionListener(new BodyListener(this, this.frame.getContentPane(), this.bodies[0]));
-        panel.add(sun);
+        for (Body x : this.bodies) {
+            JButton but = new JButton(x.getName());
+            but.addActionListener(new BodyListener(this, this.frame.getContentPane(), x));
+            panel.add(but);
+        }
+//        JButton sun = new JButton("The Sun");
+//        sun.addActionListener(new BodyListener(this, this.frame.getContentPane(), this.bodies.get(0)));
+//        panel.add(sun);
         
         return panel;
     }
 
     public JPanel bodyDialog(final Body body) {
+        final JPanel pane = new JPanel(new BorderLayout());
+
+        
         int numOfButtons = 3;
         JRadioButton[] buttons = new JRadioButton[numOfButtons];
         final ButtonGroup group = new ButtonGroup();
@@ -120,6 +129,7 @@ public class GUI implements Runnable {
                     frame, "Give new mass:",
                     "Mass", JOptionPane.PLAIN_MESSAGE);
                     body.setMass(Double.parseDouble(s));
+                    pane.setVisible(false);
                 } else if (com == velX) {
                     String s = (String)JOptionPane.showInputDialog(
                     frame, "Give horizontal velocity change:",
@@ -127,13 +137,15 @@ public class GUI implements Runnable {
                     double[] vel = body.getVelocity();
                     vel[0] += Double.parseDouble(s);
                     body.setVelocity(vel);
+                    pane.setVisible(false);
                 } else if (com == velY) {
                     String s = (String)JOptionPane.showInputDialog(
-                    frame, "Give horizontal velocity change:",
-                    "Horizontal kick", JOptionPane.PLAIN_MESSAGE);
+                    frame, "Give vertical velocity change:",
+                    "Vertical kick", JOptionPane.PLAIN_MESSAGE);
                     double[] vel = body.getVelocity();
                     vel[1] += Double.parseDouble(s);
                     body.setVelocity(vel);                    
+                    pane.setVisible(false);
                 }
                 return;
             }
@@ -145,7 +157,7 @@ public class GUI implements Runnable {
             box.add(buttons[i]);
         }
         
-        JPanel pane = new JPanel(new BorderLayout());
+//        JPanel pane = new JPanel(new BorderLayout());
         pane.add(box, BorderLayout.PAGE_START);
         pane.add(changeButton, BorderLayout.PAGE_END);
         return pane;

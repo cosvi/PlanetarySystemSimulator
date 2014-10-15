@@ -7,6 +7,8 @@
 package planetarysystemsimulator.astro;
 
 
+import java.awt.Color;
+import java.awt.Color.*;
 import java.awt.Graphics;
 
 /**
@@ -29,7 +31,9 @@ public class Body {
     private double[] velocity;       //in units of ???      v(t)
     private double[] acceleration;   //in units of ???,     a(t)
     private double[] accelerationOld;   //in units of ???,    a(t-1)
-
+    private Color color;
+    private int size;
+    
     /**
      * The constructor sets the initial 
      * acceleration values to 0. If the mass is
@@ -46,6 +50,23 @@ public class Body {
         }
         this.acceleration = new double[]{0, 0, 0};
         this.accelerationOld = new double[]{0, 0, 0};
+        this.color = Color.black;
+        this.size = 5;
+    }
+    
+    public void setSize(int size) {
+        this.size = size;
+    }
+    
+    public int getSize() {
+        return this.size;
+    }
+    public void setColor(Color color) {
+        this.color = color;
+    }
+    
+    public Color getColor(Color color) {
+        return this.color;
     }
     
     /**
@@ -145,6 +166,7 @@ public class Body {
      */
      
     public void draw(Graphics g) {
-        g.fillOval((int)this.position[0], (int)this.position[1], 7, 7);
+        g.setColor(this.color);
+        g.fillOval((int)this.position[0], (int)this.position[1], this.size, this.size );
     }
 }
