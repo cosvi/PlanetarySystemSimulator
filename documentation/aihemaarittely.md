@@ -1,13 +1,21 @@
-Aihe: Planeettakuntasimulaattori, jolla käyttäjä voi tarkastella mitä tapahtuu, jos planeettakunnalle antaa erilaisia alkuehtoja. Käyttäjä voi muokata olemassaolevien planeettakuntien alkuehtoja, tai luoda alusta alkaen oman systeemin.
+Aihe: Planeettakuntasimulaattori, jolla käyttäjä voi tarkastella mitä tapahtuu, kun Aurinkokunnan kappaleisiin
+tekee muutoksia. Käyttäjä voi myös muokata painovoiman suuruutta.
 
 Käyttäjät: Kuka tahansa
 
 Toiminnot:
 
 - Aurinkokunnan dynamiikan tarkastelu
-  - mitä tapahtuu jos laittaa pienen häiriön Aurinkokuntaan
-  - havaittujen eksoplannettakuntien tarkastelu?
-  
-- oman planeettajärjestelmän luominen
+- kappaleiden massan muuttaminen
+- kappaleille lisävauhdin antaminen
+- painovoiman kasvattaminen tai pienentäminen
+- zoomaus
+ 
+Myöhemmin toteutettavat toiminnot:
 
-- kaksoistähtijärjestelmät?
+- kappaleiden lisääminen ja poistaminen
+- kokonaan uuden systeemin luominen
+- systeemin tarkastelu muista kuvakulmista
+- olemassaolevien eksoplaneettajärjestelmien lataaminen
+- erilaisten integrointialgoritmien vertailu rinnakkain
+- kappaleiden törmäykset
