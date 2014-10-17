@@ -43,18 +43,6 @@ public class BodyTest {
     }
     
     @Test
-    public void constructorDoesntSetNegativeMass() {
-        this.body2 = new Body("Venus", -100);
-        assertEquals(1.0, this.body2.getMass(), 0.0000001);
-    }
-
-    @Test
-    public void constructorDoesntSetZeroMass() {
-        this.body2 = new Body("Pluto", 0);
-        assertEquals(1.0, this.body2.getMass(), 0.0000001);
-    }
-    
-    @Test
     public void acceleratesCorrectly() {
         this.body.setAcceleration(new double[]{0.0, 0.0, 0.0});
         this.acc = new double[]{1.5, 0.0, -2.0};
