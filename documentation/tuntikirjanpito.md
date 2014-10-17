@@ -12,3 +12,4 @@ Thu 2.10: new tests, more JavaDoc 3,5h
 Thu 9.10: unsuccesfull work on additions to GUI, 3,5h
 Mon 13.10: modifications to GUI, 3h
 Wed 15.10: more functionality and improvements to GUI, 5,5h
+Fri 17.10: final modifications and documentation, 3,5h
