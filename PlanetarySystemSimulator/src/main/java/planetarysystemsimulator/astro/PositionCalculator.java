@@ -7,13 +7,13 @@
 package planetarysystemsimulator.astro;
 
 /**
- * This class calculates the new positions of objects
- * based on their velocities and accelerations.
+ * This PositionCalculator calculates the new 
+ * positions of objects based on their 
+ * velocities and accelerations.
  * 
  * @author jussi
  */
 
-//Might be combined with VelocityCalculator
 public class PositionCalculator {
     
     /**
@@ -26,8 +26,9 @@ public class PositionCalculator {
     /**
      * Sets the new position vector of the given body
      * based on it's current position, velocity
-     * and acceleration.
-     * @param body the body whose position is to be set
+     * and acceleration. The timestep of the integration
+     * is given in units of 10^5 s.
+     * @param body the body in question
      * @param t the timestep of integration
      * @return the new position vector of the body
      */

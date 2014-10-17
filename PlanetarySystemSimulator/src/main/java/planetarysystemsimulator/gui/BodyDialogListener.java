@@ -11,7 +11,9 @@ import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 
 /**
- *
+ * Listens to the BodyDialog method of the 
+ * GUI allowing the properties of the bodies
+ * to be altered by the user.
  * @author jussi
  */
 public class BodyDialogListener implements ActionListener{
@@ -19,6 +21,12 @@ public class BodyDialogListener implements ActionListener{
     private ButtonGroup group;
     private String[] coms;
     
+    /**
+     * Creates a new Listener linked to the specified
+     * RadioButton group.
+     * @param group RadioButton group to be listened to
+     * @param coms command options of the buttons in the group
+     */
     public BodyDialogListener(ButtonGroup group, String[] coms) {
         this.group = group;
         this.coms = coms;

@@ -7,13 +7,12 @@
 package planetarysystemsimulator.astro;
 
 /**
- * This class handles the calculation of the new
+ * The VelocityCalculator calculates the new
  * velocities of objects based on their acceleration.
  * 
  * @author jussi
  */
 
-//Might be combined with PositionCalculator
 public class VelocityCalculator {
     
     /**
@@ -26,8 +25,10 @@ public class VelocityCalculator {
     /**
      * Calculates the new velocity vector for
      * a body based on its current velocity and
-     * current and previous accelerations.
-     * @param body the body whose velocity to calculate
+     * current and previous accelerations. The
+     * timestep of the integration is given in
+     * units of 10^5 s.
+     * @param body the body in question
      * @param timestep the timestep of integration
      * @return the new velocity vector of the body
      */

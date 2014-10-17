@@ -44,6 +44,10 @@ public class GUI implements Runnable {
         this.verlet = verlet;
     }
 
+    /**
+     * Creates the window for the program and sets
+     * it's size.
+     */    
     @Override
     public void run() {
         frame = new JFrame("PlanetarySystemSimulator");
@@ -57,7 +61,12 @@ public class GUI implements Runnable {
         frame.setVisible(true);
 
      }
-
+    
+    /**
+     * Sets the basic components of the GUI
+     * into their correct places.
+     * @param container 
+     */
     private void createComponents(Container container) {
         container.setLayout(new BorderLayout());
         container.add(this.board);
@@ -68,6 +77,11 @@ public class GUI implements Runnable {
         container.add(createMenu(), BorderLayout.WEST);
     }
     
+    /**
+     * Creates the sidebar with buttons for
+     * the user to manipulate the system.
+     * @return the sidebar as a JPanel
+     */
     private JPanel createMenu() {
         JPanel panel = new JPanel(new GridLayout(this.bodies.size() + 4 ,1));
         
@@ -92,13 +106,16 @@ public class GUI implements Runnable {
             but.addActionListener(new BodyListener(this, this.frame.getContentPane(), x));
             panel.add(but);
         }
-//        JButton sun = new JButton("The Sun");
-//        sun.addActionListener(new BodyListener(this, this.frame.getContentPane(), this.bodies.get(0)));
-//        panel.add(sun);
         
         return panel;
     }
-
+    
+    /**
+     * Creates the dialog to allow the user to choose
+     * which aspect of the chosen body he wants to alter.
+     * @param body body to alter
+     * @return the dialog as a JPanel
+     */
     public JPanel bodyDialog(final Body body) {
         final JPanel pane = new JPanel(new BorderLayout());
 
@@ -165,7 +182,6 @@ public class GUI implements Runnable {
             box.add(buttons[i]);
         }
         
-//        JPanel pane = new JPanel(new BorderLayout());
         pane.add(box, BorderLayout.PAGE_START);
         pane.add(changeButton, BorderLayout.PAGE_END);
         return pane;

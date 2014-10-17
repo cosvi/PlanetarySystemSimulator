@@ -15,7 +15,6 @@ package planetarysystemsimulator.astro;
  * 
  */
 
-//Might be combined with AccelerationCalculator.
 public class ForceCalculator {
     private double G;       //gravitational constant
 
@@ -25,12 +24,12 @@ public class ForceCalculator {
      * of the actual G in simulation units.
      */
     public ForceCalculator() {
-        this.G = 6.67E-7;       //in simulation units
+        this.G = 6.67E-7;       //in units of 10^-4 m^3/(kg * s^2)
     }
     
     /**
-     * Returns the current value of the gravitational constant
-     * in simulation units.
+     * Returns the current value of the gravitational
+     * constant in units of 10^-4 m^3/(kg * s^2).
      * @return Current value of G.
      */
     public double getG() {
@@ -38,8 +37,8 @@ public class ForceCalculator {
     }
     
     /**
-     * Sets a new value for the gravitational constant in
-     * simulation units.
+     * Sets a new value for the gravitational constant
+     * in units of 10^-4 m^3/(kg * s^2).
      * @param newG New value for G.
      */
     public void setG(double newG) {
@@ -50,7 +49,8 @@ public class ForceCalculator {
      * Calculates the gravitational force between
      * two bodies. It returns the force vector of
      * body2, so the force vector for body1 is the
-     * negative of the return vector.
+     * negative of the return vector. The vector is
+     * an array with x, y, and z components.
      * 
      * @param body1 the first body
      * @param body2 the second body
@@ -70,7 +70,8 @@ public class ForceCalculator {
      * Calculates the position vector between
      * two bodies. Returns the position of the
      * first body in relation to the second body.
-     * 
+     * The vector is an array with x, y and z
+     * components. The units are 10^10 m.
      * @param pos1 position of the first body
      * @param pos2 position of the second body
      * @return the position vector from body2 to body1

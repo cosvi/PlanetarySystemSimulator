@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
+ * Listens to the Zoom Out button.
  * @author jussi
  */
 public class ZoomOutListener implements ActionListener {

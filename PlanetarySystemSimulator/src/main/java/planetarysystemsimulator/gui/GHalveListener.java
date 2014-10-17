@@ -11,7 +11,8 @@ import java.awt.event.ActionListener;
 import planetarysystemsimulator.astro.VerletIntegrator;
 
 /**
- * This listener handles the alterG button.
+ * Listens to the button that halves
+ * the gravitational constant.
  * @author jussi
  */
 public class GHalveListener implements ActionListener {

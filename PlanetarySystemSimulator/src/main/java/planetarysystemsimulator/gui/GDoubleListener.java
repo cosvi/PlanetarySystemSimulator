@@ -11,7 +11,8 @@ import java.awt.event.ActionEvent;
 import planetarysystemsimulator.astro.VerletIntegrator;
 
 /**
- *
+ * Listens to the button that doubles the
+ * gravitational constant.
  * @author jussi
  */
 public class GDoubleListener implements ActionListener {

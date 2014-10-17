@@ -10,7 +10,7 @@ import java.awt.Component;
 import java.util.ArrayList;
 
 /**
- * This class handles the movement of the objects
+ * This VerletIntegrator handles the movement of the objects
  * according to the Velocity Verlet integration
  * algorithm.
  * 
@@ -22,14 +22,14 @@ public class VerletIntegrator {
     protected VelocityCalculator velCalc;
     protected PositionCalculator posCalc;
     private ArrayList<Body> bodies;
-    private int t;  //timestep used in integration
+    private int t;  //timestep used in integration, units of 10^5 s
     private Component comp;
     private boolean running;  //Is integrator running
     
     /**
      * Creates a new VerletIntegrator with its
      * necessary calculators. It sets the timestep
-     * of integration to 1 simulation unit and the
+     * of integration to 1 simulation unit (10^5 s) and the
      * running value to true, so the simulation starts
      * running straight away.
      * @param bodies the bodies in the planetary system
@@ -46,6 +46,10 @@ public class VerletIntegrator {
         this.running = true;
     }
     
+    /**
+     * Returns an ArrayList with the bodies in the system.
+     * @return ArrayList of bodies
+     */
     public ArrayList<Body> getBodies() {
         return this.bodies;
     }
@@ -59,6 +63,11 @@ public class VerletIntegrator {
         this.running = !this.running;
     }
     
+    /**
+     * Returns the value of the running attribute which
+     * determines whether the simulation is running or paused.
+     * @return value of the running attribute
+     */
     public boolean getRunning() {
         return this.running;
     }

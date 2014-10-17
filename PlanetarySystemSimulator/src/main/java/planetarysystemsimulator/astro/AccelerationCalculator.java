@@ -16,7 +16,6 @@ package planetarysystemsimulator.astro;
  * 
  */
 
-//Might be combined with ForceCalculator
 public class AccelerationCalculator {
     protected ForceCalculator forcecalc;
     

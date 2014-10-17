@@ -13,7 +13,9 @@ import java.awt.event.ActionListener;
 import planetarysystemsimulator.astro.Body;
 
 /**
- *
+ * Listens to the various body buttons in the GUI
+ * calling the appropriate BodyDialog to allow
+ * the user alter the body's properties.
  * @author jussi
  */
 public class BodyListener implements ActionListener {
@@ -28,6 +30,12 @@ public class BodyListener implements ActionListener {
         this.cont = cont;
     }
     
+    /**
+     * After the action is performed, calls the
+     * DrawingBoard to redraw itself.
+     * 
+     * @param ae 
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         this.cont.add(this.gui.bodyDialog(this.body), BorderLayout.EAST);

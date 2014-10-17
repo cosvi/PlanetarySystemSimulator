@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import planetarysystemsimulator.astro.VerletIntegrator;
 
 /**
- * This listener handles the pause button.
+ * Listens to the pause button.
  * @author jussi
  */
 public class PauseListener implements ActionListener {
